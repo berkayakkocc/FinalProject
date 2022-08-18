@@ -16,5 +16,7 @@ namespace Business.Constants
         internal static string MaintenanceTime = "System Maintenance Time";
 
         internal static string ProductListed = "Products listed";
+
+        public static string UnitPriceInvalid = "The product price cannot be less than zero";
     }
 }
