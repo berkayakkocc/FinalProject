@@ -18,5 +18,11 @@ namespace Business.Constants
         internal static string ProductListed = "Products listed";
 
         public static string UnitPriceInvalid = "The product price cannot be less than zero";
+
+        public static string ProductCountOfCategoryError = "The number of products has reached ten.";
+
+        public static string ProductNameAlreadyExist = "Same product name available";
+
+        public static string CategoryLimitExceded = "Category limit exceded";
     }
 }
