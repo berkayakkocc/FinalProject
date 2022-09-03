@@ -82,10 +82,11 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Update(Product product)
         {
-            var result = _productDal.GetAll(p => p.CategoryId == product.CategoryId).Count;
-            if (result >= 15)
+            IResult result = BusinessRules.Run(CheckIfProductNameExist(product.ProductName), CheckIfProductOfCategoryCorrect(product.CategoryId),
+              CheckIfCategoryLimitExceded());
+            if (result != null)
             {
-                return new ErrorResult(Messages.ProductCountOfCategoryError);
+                return result;
             }
             _productDal.Update(product);
             return new SuccessResult(Messages.ProductUpdated);
